@@ -14,7 +14,8 @@ const defaultComment = {
     mail: '',
     link: '',
     ua: navigator.userAgent,
-    url: ''
+    url: '',
+    location: location.href
 };
 const locales = {
     'zh-cn': {
@@ -877,6 +878,7 @@ ValineFactory.prototype.bind = function (option) {
         // 新建对象
         let comment = new Ct();
         defaultComment['url'] = decodeURI(root.config.path);
+        defaultComment['location'] = location.href;
         defaultComment['insertedAt'] = new Date();
         if (atData['rid']) {
             let pid = atData['pid'] || atData['rid'];
