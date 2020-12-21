@@ -878,11 +878,11 @@ ValineFactory.prototype.bind = function (option) {
         // 新建对象
         let comment = new Ct();
         defaultComment['url'] = decodeURI(root.config.path);
-        defaultComment['location'] = location.href;
         defaultComment['insertedAt'] = new Date();
         if (atData['rid']) {
             let pid = atData['pid'] || atData['rid'];
             comment.set('rid', atData['rid']);
+            comment.set('location', location.href);
             comment.set('pid', pid);
             defaultComment['comment'] = defaultComment['comment'].replace('<p>', `<p><a class="at" href="#${pid}">${atData['at']}</a> , `);
         }
